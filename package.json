@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@estudioliver/vue-uuid-v4": "^1.0.0",
+    "@vue/cli": "^5.0.8",
     "core-js": "^3.8.3",
     "uuid": "^10.0.0",
     "vue": "^2.6.14",
@@ -24,28 +25,22 @@
     "@vue/cli-plugin-unit-jest": "^5.0.8",
     "@vue/cli-service": "~5.0.0",
     "@vue/test-utils": "^1.3.6",
-    "babel-jest": "^29.7.0",
+    "@vue/vue2-jest": "^27.0.0",
+    "eslint": "^8.0.0",
+    "eslint-define-config": "^2.1.0",
     "eslint-plugin-jest": "^28.8.3",
     "eslint-plugin-vue": "^9.28.0",
-    "jest": "^29.7.0",
+    "jest": "^27.5.1",
     "jsdom": "^25.0.0",
     "jsdom-global": "^3.0.2",
     "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.14"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
+  "jest": {
+    "preset": "@vue/cli-plugin-unit-jest"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   },
   "browserslist": [
     "> 1%",
