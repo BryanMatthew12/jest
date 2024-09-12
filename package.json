@@ -36,9 +36,6 @@
     "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.14"
   },
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
-  },
   "engines": {
     "node": ">=16.0.0"
   },
