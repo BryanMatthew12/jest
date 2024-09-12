@@ -2,7 +2,7 @@
     <div class="task-item" 
     v-bind:class="{'is-complete':task.completed}">
     <input type="checkbox" class="cb" @click="markComplete">
-        {{ task.name }}
+        {{ task.title }}
     <button @click="deleteTask">Delete Task</button>
     </div>
 </template>
@@ -15,15 +15,15 @@ import {mapActions} from 'vuex';
 export default {
     name: "TaskList",
     props: ["task"],
-    mounted(){
-        console.log(this.task);
-    },
+    // mounted(){
+    //     console.log(this.task);
+    // },
     methods: {
       ...mapActions(['removeTask','updatedTask']),
         markComplete(){
           const updatedTask = {
             id : this.task.id,
-            name: this.task.name,
+            title: this.task.title,
             completed: !this.task.completed
           };
           this.updatedTask(updatedTask)
