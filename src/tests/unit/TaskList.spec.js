@@ -5,7 +5,6 @@ import TaskListWithFilter from '@/components/TaskListWithFilter.vue';
 
 
 describe('Task Component unit tests : ', () => {
-
     test('is a Vue Instance', () => {
         const wrapper  = mount(TaskList, {
             propsData: {
