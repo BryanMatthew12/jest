@@ -10,7 +10,7 @@ describe('VueFormGenerator.vue', () => {
 
     const wrapper = shallowMount(VueFormGenerator, {
       localVue,
-      data() {
+      propsData() {
         return {
           model: {
             name: 'John Doe',
@@ -18,7 +18,8 @@ describe('VueFormGenerator.vue', () => {
             username: 'johndoe',
             password: 'password123',
             favoriteLanguage: 'VueJs',
-            acceptTerms: true
+            acceptTerms: true,
+            signUp: true
           },
           schema: {
             fields: [
@@ -73,10 +74,10 @@ describe('VueFormGenerator.vue', () => {
               },
               {
                 type: 'submit',
-                model: 'signup',
+                model: 'signUp',
                 inputType:'submit',
                 onSubmit: mockOnSubmit,
-                buttonText: 'Sign Up',
+                buttonText: 'signUp',
                 validateBeforeSubmit: true
               }
             ]
@@ -86,7 +87,7 @@ describe('VueFormGenerator.vue', () => {
     });
 
     // validate if button appear
-    const submitButton = wrapper.find('.field-wrap.signup'); 
+    const submitButton = wrapper.find('signUp'); 
     expect(submitButton.exists()).toBe(true);
 
     // Simulate form submission
@@ -100,7 +101,8 @@ describe('VueFormGenerator.vue', () => {
       username: 'johndoe',
       password: 'password123',
       favoriteLanguage: 'VueJs',
-      acceptTerms: true
+      acceptTerms: true,
+      signUp : true
     }));
   });
 });
