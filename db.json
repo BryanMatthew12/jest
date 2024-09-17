@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Javascript",
+      "acceptTerms": true
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "username": "janesmith",
+      "password": "mysecretpassword",
+      "favoriteLanguage": "VueJs",
+      "acceptTerms": true
+    },
+    {
+      "id": "3",
+      "name": "Alice Johnson",
+      "email": "alice.j@example.com",
+      "username": "alicej",
+      "password": "supersecure",
+      "favoriteLanguage": "CSS3",
+      "acceptTerms": true
+    },
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Javascript",
+      "acceptTerms": true
+    },
+    {
+      "id": "1",
+      "name": "agfustinus",
+      "email": "john.doe@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Javascript",
+      "acceptTerms": true
+    }
+  ]
+}

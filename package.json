@@ -5,13 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "jest",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@braid/vue-formulate": "^2.5.3",
     "@estudioliver/vue-uuid-v4": "^1.0.0",
     "@vue/cli": "^5.0.8",
+    "axios": "^1.7.7",
     "core-js": "^3.8.3",
     "uuid": "^10.0.0",
     "vue": "^2.6.14",
@@ -21,13 +22,16 @@
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
+    "@babel/preset-env": "^7.25.4",
     "@types/uuid": "^10.0.0",
+    "@vue/babel-preset-jsx": "^1.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-unit-jest": "^5.0.8",
     "@vue/cli-service": "~5.0.0",
     "@vue/test-utils": "^1.3.6",
     "@vue/vue2-jest": "^27.0.0",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.0.0",
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-jest": "^28.8.3",

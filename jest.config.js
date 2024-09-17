@@ -8,7 +8,7 @@ module.exports = {
       '^.+\\.js$': 'babel-jest'
     },
     transformIgnorePatterns: [
-      '/node_modules/'
+      "/node_modules/(?!vue-awesome|axios)"
     ],
-    testEnvironment: 'jsdom'
+    testEnvironment: 'jsdom',
 };
