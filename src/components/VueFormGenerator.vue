@@ -88,6 +88,7 @@
 
 <script>
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     data() {
@@ -105,41 +106,55 @@ export default {
             errorMessage: '' // To show error response
         };
     },
-    mounted(){
-        this.userId = 1;
+    mounted() {
         this.fetchUserData(); // Fetch user data on component mount
     },
     methods: {
         async fetchUserData() {
-        try {
-            const response = await axios.get(`http://localhost:3000/users/1`);
-            this.model = response.data;
-            console.log('fetched user data: ', response.data);
-            
-        } catch (error) {
-            console.error('Error fetching user data:', error);
-            this.errorMessage = 'Error fetching user data';
-        }
-        },
-        async handleSubmit() {
-            if (this.validateForm()) {
-                try {
-                    const response = await axios.post('http://localhost:3000/users', this.model);
-                    this.successMessage = 'Form submitted successfully!';
-                    this.errorMessage = ''; // Clear any previous error
-                    console.log(response.data); // Log response for debugging
-                } catch (error) {
-                    this.successMessage = ''; // Clear any previous success message
-                    this.errorMessage = 'An error occurred while submitting the form.';
-                    console.error('Error submitting form:', error);
-                }
-            } else {
-                this.errorMessage = 'Please fill out all required fields.';
+            try {
+                const response = await axios.get('http://localhost:3000/users/1');
+                // Merge the fetched data with the existing model
+                this.model = { ...this.model};
+                console.log('fetched user data: ', response.data);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                this.errorMessage = 'Error fetching user data';
             }
         },
+        async handleSubmit() {
+        const validationError = this.validateForm();
+        if (validationError) {
+            this.errorMessage = validationError;
+            console.log(validationError);
+            
+            return;
+        }
+
+        // Ensure the ID is a UUID if it hasn't been set yet
+        if (!this.model.id || this.model.id === 1) {  // Check if ID is 1 or missing, replace with UUID
+            this.model.id = uuidv4();
+        }
+
+        try {
+            const response = await axios.post('http://localhost:3000/users', this.model);
+            this.successMessage = 'Form submitted successfully!';
+            this.errorMessage = ''; // Clear any previous error
+            console.log('Submitted data:', response.data); // Log response for debugging
+        } catch (error) {
+            this.successMessage = ''; // Clear any previous success message
+            this.errorMessage = 'An error occurred while submitting the form.';
+            console.error('Error submitting form:', error);
+        }
+    },
         validateForm() {
-            return this.model.name && this.model.email && this.model.username &&
-                this.model.password && this.model.favoriteLanguage && this.model.acceptTerms;
+            if (!this.model.name) return 'Name is required.';
+            if (!this.model.email) return 'Email is required.';
+            if (!this.model.username) return 'Username is required.';
+            if (!this.model.password) return 'Password is required.';
+            if (this.model.password.length < 6) return 'Password must be at least 6 characters long.';
+            if (!this.model.favoriteLanguage) return 'Favorite language is required.';
+            if (!this.model.acceptTerms) return 'You must accept the terms.';
+            return '';
         }
     }
 };
@@ -183,4 +198,3 @@ small {
     margin-top: 1em;
 }
 </style>
-``

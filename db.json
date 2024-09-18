@@ -28,21 +28,21 @@
       "acceptTerms": true
     },
     {
-      "id": "1",
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "username": "johndoe",
-      "password": "password123",
-      "favoriteLanguage": "Javascript",
+      "id": "5fdcfdd4-788e-41ec-a904-2fc2b6ce220d",
+      "name": "antin",
+      "email": "toni@gmail.com",
+      "username": "anton123",
+      "password": "fsfsdfdsfds",
+      "favoriteLanguage": "VueJs",
       "acceptTerms": true
     },
     {
-      "id": "1",
-      "name": "agfustinus",
-      "email": "john.doe@example.com",
-      "username": "johndoe",
-      "password": "password123",
-      "favoriteLanguage": "Javascript",
+      "id": "83520ec0-d79b-49ee-87d7-101f3b2fc216",
+      "name": "intan",
+      "email": "intanbekantan@gmail.com",
+      "username": "yuka123",
+      "password": "yuka1234",
+      "favoriteLanguage": "CSS3",
       "acceptTerms": true
     }
   ]
