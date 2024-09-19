@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import VueFormGenerator from '@/components/VueFormGenerator.vue';
 import axios from 'axios';
 
@@ -8,12 +8,17 @@ jest.mock('axios');
 describe('VueFormGenerator.vue', () => {
     let wrapper;
 
+    //Setup : 
     beforeEach(() => {
-        // Reset the wrapper before each test
-        wrapper = mount(VueFormGenerator);
+        // Setup :
+        // Create new wrapper before each test allowing for isolation of tests
+        wrapper = shallowMount(VueFormGenerator);
     });
 
     afterEach(() => {
+        // Teardown : 
+        // can be used to cleanup after each test 
+        // wrapper.destroy(); 
         jest.clearAllMocks(); // Clear any previous mocks after each test
     });
 

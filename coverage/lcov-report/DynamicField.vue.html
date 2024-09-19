@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for TaskList.vue</title>
+    <title>Code coverage report for DynamicField.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> TaskList.vue</h1>
+        <h1><a href="index.html">All files</a> DynamicField.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -117,7 +117,32 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,8 +154,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,59 +214,80 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-    &lt;div class="task-item" 
-    v-bind:class="{'is-complete':task.completed}"&gt;
-    &lt;input type="checkbox" class="cb" @click="markComplete"&gt;
-        {{ task.title }}
-    &lt;button @click="deleteTask"&gt;Delete Task&lt;/button&gt;
+    &lt;div&gt;
+        &lt;h2&gt;Dynamic Form Example&lt;/h2&gt;
+        &lt;form @submit.prevent="handleSubmit"&gt;
+            &lt;DynamicField
+                v-for="(field, index) in formFields"
+                :key="index"
+                :field="field"
+                v-model="model[field.modelKey]"
+            /&gt;
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+        &lt;/form&gt;
     &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
-&nbsp;
-&nbsp;
 &lt;script&gt;
+import DynamicField from './DynamicField.vue';
 &nbsp;
-import {mapActions} from 'vuex';
 export default {
-    name: "TaskList",
-    props: ["task"],
-    // mounted(){
-    //     console.log(this.task);
-    // },
+    components: {
+        DynamicField
+    },
+    data() {
+        return {
+            model: {},
+            formFields: [
+                {
+                    modelKey: 'name',
+                    type: 'text',
+                    label: 'Name',
+                    required: true,
+                    props: {
+                        id: 'name',
+                        placeholder: 'Enter your name'
+                    }
+                },
+                {
+                    modelKey: 'email',
+                    type: 'email',
+                    label: 'Email',
+                    required: true,
+                    props: {
+                        id: 'email',
+                        placeholder: 'email@test.com'
+                    }
+                },
+                {
+                    modelKey: 'favoriteLanguage',
+                    type: 'select',
+                    label: 'Favorite Language',
+                    required: true,
+                    props: {
+                        id: 'favoriteLanguage',
+                        options: ['JavaScript', 'VueJS', 'CSS3', 'HTML5']
+                    }
+                },
+                {
+                    modelKey: 'acceptTerms',
+                    type: 'checkbox',
+                    label: 'Accept Terms',
+                    required: true,
+                    props: {
+                        id: 'acceptTerms'
+                    }
+                }
+            ]
+        };
+    },
     methods: {
-      ...mapActions(['removeTask','updatedTask']),
-        markComplete(){
-          const updatedTask = {
-            id : this.task.id,
-            title: this.task.title,
-            completed: !this.task.completed
-          };
-          this.updatedTask(updatedTask)
-        },
-        deleteTask() {
-          this.removeTask(this.task)
+        handleSubmit() {
+            console.log('Submitted model:', this.model);
         }
     }
-}
-&nbsp;
+};
 &lt;/script&gt;
-&nbsp;
-&nbsp;
-&nbsp;
-&lt;style scoped&gt;
-  .task-item {
-    background: #f4f4f4;
-    padding: 10px;
-    border-bottom: 1px #ccc dotted;
-  }
-  /* .cb {
-    text-decoration: none;
-  } */
-  .is-complete {
-    text-decoration: line-through;
-    text-decoration-color: red;
-  }
-&lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -232,7 +295,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-09-19T07:37:12.660Z
+                at 2024-09-19T05:24:54.975Z
             </div>
         <script src="prettify.js"></script>
         <script>

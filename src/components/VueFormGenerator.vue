@@ -89,6 +89,7 @@
 <script>
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+// import FormField from './FormField.vue';
 
 export default {
     data() {
@@ -110,11 +111,12 @@ export default {
         this.fetchUserData(); // Fetch user data on component mount
     },
     methods: {
-        async fetchUserData() {
+        
+        async fetchUserData() {      
             try {
                 const response = await axios.get('http://localhost:3000/users/1');
                 // Merge the fetched data with the existing model
-                this.model = { ...this.model};
+                // this.model = { ...this.model};
                 console.log('fetched user data: ', response.data);
             } catch (error) {
                 console.error('Error fetching user data:', error);

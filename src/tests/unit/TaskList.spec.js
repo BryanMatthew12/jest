@@ -18,7 +18,6 @@ describe('Task Component unit tests : ', () => {
     });
 });
 
-
 describe('Completed Task :', () => {
     const tasks = [
         { id: 1, name: 'Task 1', completed: true },
