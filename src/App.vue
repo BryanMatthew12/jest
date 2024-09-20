@@ -16,6 +16,7 @@ import HeaderPage from './components/layout/HeaderPage.vue';
 import CompletedTask from './components/CompletedTask.vue';
 import VueFormGenerator from './components/VueFormGenerator.vue';
 
+
 export default {
   name: 'App',
   components: {
@@ -23,7 +24,8 @@ export default {
     VueFormGenerator,
     HeaderPage,
     AddTask,
-    CompletedTask
+    CompletedTask,
+    
   },
   data() {
     return {
