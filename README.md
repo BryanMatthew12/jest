@@ -28,3 +28,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 npm run test:unit
 ```
+
+### Run coverage
+```
+npx jest --coverage
+```
