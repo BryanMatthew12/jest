@@ -3,8 +3,6 @@
     <HeaderPage/>
     <AddTask/>
     <TaskManager/>
-    <!-- Add the CompletedTask component here -->
-    <CompletedTask :tasks="tasks"/>
     <vue-form-generator/>
   </div>
 </template>
@@ -13,7 +11,6 @@
 import AddTask from './components/AddTask.vue';
 import TaskManager from './components/TaskManager.vue';
 import HeaderPage from './components/layout/HeaderPage.vue';
-import CompletedTask from './components/CompletedTask.vue';
 import VueFormGenerator from './components/VueFormGenerator.vue';
 
 
@@ -24,7 +21,6 @@ export default {
     VueFormGenerator,
     HeaderPage,
     AddTask,
-    CompletedTask,
     
   },
   data() {

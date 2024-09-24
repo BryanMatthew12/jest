@@ -1,34 +1,31 @@
 <template>
-    <div>
-        <div v-bind:key="task.id" v-for="task in allTasks">
-            <TaskList v-bind:task="task" />
-        </div>
-    </div> 
-</template>
-
-
-
-<script>
-import { mapGetters,mapActions } from 'vuex';
-// import { mapGetters,mapActions } from 'vuex';
-import TaskList from './TaskList.vue';
-export default {
+    <div data-cy="taskListContainer">    
+      <div v-bind:key="task.id" v-for="task in allTasks">
+        <TaskList v-bind:task="task" />
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  import { mapGetters, mapActions } from 'vuex';
+  import TaskList from './TaskList.vue';
+  
+  export default {
     components: {
-        TaskList
+      TaskList
     },
-    name: "TaskManager",
-    props: ["tasks"],
+    name: 'TaskManager',
+    props: ["task"],
     methods: {
-        ...mapActions(['fetchTasks'])
+      ...mapActions(['fetchTasks'])
     },
-    computed: {
-        ...mapGetters(['allTasks'])
+    computed: mapGetters(['allTasks']),
+    created() {
+      this.fetchTasks()
     }
-}
-</script>
-
-
-<style scoped>
-
-
-</style>
+  }
+  </script>
+  
+  <style scoped>
+  </style>
+  

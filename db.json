@@ -1,4 +1,21 @@
 {
+  "task": [
+    {
+      "id": 1,
+      "title": "Task 1",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Task 2",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "Task 3",
+      "completed": false
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -25,33 +42,6 @@
       "username": "alicej",
       "password": "supersecure",
       "favoriteLanguage": "CSS3",
-      "acceptTerms": true
-    },
-    {
-      "id": "5fdcfdd4-788e-41ec-a904-2fc2b6ce220d",
-      "name": "antin",
-      "email": "toni@gmail.com",
-      "username": "anton123",
-      "password": "fsfsdfdsfds",
-      "favoriteLanguage": "VueJs",
-      "acceptTerms": true
-    },
-    {
-      "id": "83520ec0-d79b-49ee-87d7-101f3b2fc216",
-      "name": "intan",
-      "email": "intanbekantan@gmail.com",
-      "username": "yuka123",
-      "password": "yuka1234",
-      "favoriteLanguage": "CSS3",
-      "acceptTerms": true
-    },
-    {
-      "id": "kav77qhmm",
-      "name": "ilham",
-      "email": "fdsfsf@gmail.com",
-      "username": "fdsfdsf",
-      "password": "fdsfsfds",
-      "favoriteLanguage": "C",
       "acceptTerms": true
     }
   ]

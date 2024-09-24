@@ -7,7 +7,6 @@
           type="text"
           id="name"
           label="Name"
-          required
           placeholder="Enter your name"
         />
         <FormField
@@ -15,7 +14,6 @@
           type="email"
           id="email"
           label="Email"
-          required
           placeholder="email@test.com"
         />
         <FormField
@@ -23,7 +21,6 @@
           type="text"
           id="username"
           label="Username"
-          required
           placeholder="Enter your username"
         />
         <FormField
@@ -31,7 +28,6 @@
           type="password"
           id="password"
           label="Password"
-          required
           minlength="6"
           placeholder="Enter your password"
         />
@@ -41,7 +37,6 @@
           id="favoriteLanguage"
           :options="['Java', 'C', 'Javascript', 'C#', 'Python', 'Ruby']"
           label="Favorite Language"
-          required
           placeholder="Select your favorite language"
         />
   
@@ -50,7 +45,6 @@
           type="checkbox"
           id="acceptTerms"
           label="Accept Terms"
-          required
         />
   
         <button type="submit">Sign Up</button>

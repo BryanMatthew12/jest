@@ -1,44 +1,47 @@
+// Tasks module
+import axios from 'axios';
+
+const resource_uri = "http://localhost:3000/task/";
+
 const state = {
-    tasks: [
-      { id: 1, title: "Task 1", completed: false },
-      { id: 2, title: "Task 2", completed: false },
-      { id: 3, title: "Task 3", completed: false }
-    ]
-  };
-  
-  const getters = {
-    allTasks: state => state.tasks,
-    completedTasks: state => state.tasks.filter(task => task.completed)
-  };
-  
-  const actions = {
-    fetchTasks({ commit }, tasks) {
-      commit('setTasks', tasks);
+    tasks: []
+};
+
+const getters = {
+    allTasks: state => state.tasks
+};
+
+const actions = {
+    async fetchTasks({ commit }) {
+        const response = await axios.get(resource_uri);    
+        commit('setTasks', response.data);
     },
-    addTask({ commit }, task) {
-      commit('newTask', task);
+    async addTask( { commit }, task) {
+        const response = await axios.post(resource_uri, task);
+        commit('newTask', response.data);
     },
-    updatedTask({ commit }, task) {
-      commit('updTask', task);
+    async updateTask( { commit }, task) {
+        const response = await axios.put(`${resource_uri}${task.id}`, task);
+        commit('updTask', response.data);
     },
-    removeTask({ commit }, task) {
-      commit('delTask', task);
+    async removeTask( { commit }, task) {
+        await axios.delete(`${resource_uri}${task.id}`);
+        commit('deleteTask', task);
     }
-  };
-  
-  const mutations = {
+};
+
+const mutations = {
     setTasks: (state, tasks) => state.tasks = tasks,
-    newTask: (state, task) => state.tasks.push(task),
+    newTask: (state, task) => state.tasks.unshift(task),
     updTask: (state, updatedTask) => {
-      const index = state.tasks.findIndex(t => t.id === updatedTask.id);
-      if (index !== -1) {
-        state.tasks.splice(index, 1, updatedTask);
-      }
+        const index = state.tasks.findIndex(t => t.id === updatedTask.id);
+        if(index !== -1) {
+            state.tasks.splice(index, 1, updatedTask);
+        }        
     },
-    delTask: (state, task) => state.tasks = state.tasks.filter(t => t.id !== task.id)
-  };
-  
-  export default {
+    deleteTask: (state, task) => state.tasks = state.tasks.filter(t => task.id !== t.id),
+};
+
+export default {
     state, getters, actions, mutations
-  };
-  
+}

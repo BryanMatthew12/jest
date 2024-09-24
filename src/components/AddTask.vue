@@ -1,16 +1,15 @@
 <template>
     <div>
-        <form v-on:submit="onSubmit">
-            <input type="text" v-model="title" title="name"  required placeholder="Add Task">
-            <input type="submit" value="Add Task" class="btn">
+        <form @submit="onSubmit">
+            <input type="text" v-model="title" name ="title" 
+            placeholder="Add Task" class="txt" data-cy="taskInput">
+            <input type="submit" value="Add Task" class="btn" data-cy="taskSubmit">
         </form>
     </div>
 </template>
 
 <script>
-
-import { mapActions } from 'vuex'
-import {v4 as uuidv4 } from 'uuid';
+import { mapActions } from 'vuex';
 
 export default {
     name: "AddTask",
@@ -21,14 +20,13 @@ export default {
     },
     methods: {
         ...mapActions(['addTask']),
-        onSubmit(e){
+        onSubmit(e) {
             e.preventDefault();
             const task = {
-                id: uuidv4(),
                 title: this.title,
                 completed: false
             }
-            this.addTask(task)
+            this.addTask(task);
         }
     }
 }
@@ -45,7 +43,6 @@ export default {
   }
 
   input[type="submit"] {
-    flex: 2;
-    display: flexbox;    
+    flex: 2;    
   }
 </style>
