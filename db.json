@@ -1,18 +1,18 @@
 {
   "task": [
     {
-      "id": 1,
-      "title": "Task 1",
-      "completed": false
-    },
-    {
-      "id": 2,
+      "id": "b4a2",
       "title": "Task 2",
       "completed": false
     },
     {
-      "id": 3,
-      "title": "Task 3",
+      "id": "aa9f",
+      "title": "Task 5",
+      "completed": false
+    },
+    {
+      "id": "ad40",
+      "title": "dsa",
       "completed": false
     }
   ],
@@ -42,6 +42,15 @@
       "username": "alicej",
       "password": "supersecure",
       "favoriteLanguage": "CSS3",
+      "acceptTerms": true
+    },
+    {
+      "id": "ygo4svrgx",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Java",
       "acceptTerms": true
     }
   ]

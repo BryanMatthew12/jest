@@ -33,3 +33,15 @@ npm run test:unit
 ```
 npx jest --coverage
 ```
+
+### Open Cypress
+```
+npx cypress open
+```
+
+### Run Cypress Test
+can be done in cypress / command line 
+```
+npx cypress run --record --key
+```
+key can be found in cypress test setting 

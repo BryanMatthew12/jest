@@ -2,7 +2,16 @@ describe('Vue Form Generator', () => {
     beforeEach(() => {
       cy.visit('http://localhost:8080'); // Adjust to your local server URL
     });
-  
+    
+    it('submit the form without sending data to the backend', () => {
+      //intercept the POST request]\
+      cy.intercept('POST', 'http://localhost:3000/users', {
+        statusCode: 200,
+        body: { message: 'Form Submitted Successfully!'},
+      }).as('formSubmit')
+    })
+
+
     it('submits the form successfully', () => {
       // Fill the form fields
       cy.get('#name').type('John Doe');
@@ -13,7 +22,10 @@ describe('Vue Form Generator', () => {
       cy.get('#acceptTerms').check();
   
       // Submit the form
-      cy.get('form').submit();
+      cy.get('form#myform').submit();
+
+      // Wait for the intercepted POST request
+      cy.wait('@handleSubmit').its('response.statusCode').should('eq', 200);
   
       // Check for success message
       cy.get('.success').should('contain', 'Form submitted successfully!');
@@ -24,7 +36,7 @@ describe('Vue Form Generator', () => {
   
     it('displays only the relevant error message for invalid submission', () => {
         // Submit the form without filling any fields
-        cy.get('form').submit();
+        cy.get('form#myform').submit();
       
         // Check for the specific error message
         cy.get('.error').should('be.visible').and('contain', 'Name is required.');

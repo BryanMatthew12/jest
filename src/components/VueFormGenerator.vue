@@ -1,7 +1,7 @@
 <template>
     <div>
       <h2>Vue Form Generator</h2>
-      <form @submit.prevent="handleSubmit">
+      <form id="myform" @submit.prevent="handleSubmit">
         <FormField
           v-model="model.name"
           type="text"
