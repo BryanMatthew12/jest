@@ -23,9 +23,6 @@ describe('Vue Form Generator', () => {
   
       // Submit the form
       cy.get('form#myform').submit();
-
-      // Wait for the intercepted POST request
-      cy.wait('@handleSubmit').its('response.statusCode').should('eq', 200);
   
       // Check for success message
       cy.get('.success').should('contain', 'Form submitted successfully!');

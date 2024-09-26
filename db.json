@@ -9,11 +9,6 @@
       "id": "aa9f",
       "title": "Task 5",
       "completed": false
-    },
-    {
-      "id": "ad40",
-      "title": "dsa",
-      "completed": false
     }
   ],
   "users": [
@@ -46,6 +41,51 @@
     },
     {
       "id": "ygo4svrgx",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Java",
+      "acceptTerms": true
+    },
+    {
+      "id": "s3bfzjamj",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Java",
+      "acceptTerms": true
+    },
+    {
+      "id": "fi07qyvf8",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Java",
+      "acceptTerms": true
+    },
+    {
+      "id": "mj6146m8t",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Java",
+      "acceptTerms": true
+    },
+    {
+      "id": "yl25glvjk",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "username": "johndoe",
+      "password": "password123",
+      "favoriteLanguage": "Java",
+      "acceptTerms": true
+    },
+    {
+      "id": "iwx03bb01",
       "name": "John Doe",
       "email": "john@example.com",
       "username": "johndoe",
