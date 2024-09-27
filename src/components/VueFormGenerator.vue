@@ -105,6 +105,7 @@
         console.log('Form Submitted:', response.data);
         this.successMessage = 'Form submitted successfully!';
         this.errorMessage = '';
+        this.$router.push({ name: "home" })
       } catch (error) {
         this.errorMessage = 'An error occurred while submitting the form.';
       }
@@ -124,6 +125,11 @@
     generateId() {
       return Math.random().toString(36).substr(2, 9); // Simple ID generation
     },
+
+    signUp(){
+      this.$router.push({name: "home"});
+    }
+
   },
 };
   </script>

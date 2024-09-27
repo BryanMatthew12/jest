@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderPage/>
+    <HeaderPage v-if="showHeader"/>
     <!-- <AddTask/> -->
     <!-- <TaskManager/> -->
     <!-- <vue-form-generator/> -->
@@ -26,15 +26,11 @@ export default {
     // AddTask,
     
   },
-  // data() {
-  //   return {
-  //     tasks: [
-  //       { id: 1, name: 'Task 1', completed: false },
-  //       { id: 2, name: 'Task 2', completed: false },
-  //       { id: 3, name: 'Task 3', completed: false },
-  //     ]
-  //   };
-  // }
+  computed: {
+    showHeader() {
+      return this.$route.name !== 'login'
+    }
+  }
 }
 </script>
 

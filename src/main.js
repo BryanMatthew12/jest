@@ -3,7 +3,7 @@ import App from './App.vue'
 import store from './store'
 import axios from 'axios';
 // import VueRouter from './router';
-import router from '../router';
+import router from '../router'
 
 import  VueFormGenerator  from 'vue-form-generator';
 import "vue-form-generator/dist/vfg-core.css"
