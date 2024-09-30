@@ -1,4 +1,4 @@
-# vue-js-2-pragmatic-task
+# vue-js-2-testing
 
 ## Project setup
 ```
